@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <table>
+            <tr>
+                <th>name</th>
+                <th>destination</th>
+                <th>seat</th>
+                <th>id number</th>
+            </tr>
+
+            {% for x in cust %}
+            <tr>
+                <td> {{x.Customer_name}} </td>
+                <td> {{x.destination}} </td>
+                <td> {{x.seatno}} </td>
+                <td> {{x.Id_number}} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
