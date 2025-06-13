@@ -39,8 +39,7 @@ def main(request):
 
 def success(request):
     #fetching success.html template
-    template = loader.get_template('success.html')
-    return HttpResponse(template.render(request))
+    return render(request, 'success.html')
 
 def payment(request, id):
     #getting customer details from the main.html

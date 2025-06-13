@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <head>
     <style>
-
+        body{
+            margin: 0;
+        }
         .congrats{
             width: 100%;
             height: auto;
@@ -12,7 +14,8 @@
 </head>
 <html>
     <body>
-        <img src="pics/animated_image.gif" alt="success" class="congrats">
+        {% load static %}
+        <img src="{% static 'pics/animated_image.gif' %}" alt="success" class="congrats">
         
         <p>
             <h1 style="text-align: center;">CONGRATS SUCCESSFULLY UPDATED</h1>
