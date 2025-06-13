@@ -12,11 +12,13 @@
 
             .heading{
                 font-size: large;
-                background-color: #4D3626;
+                background-color: #A89487;
                 margin-bottom: 20px;
                 padding: 20px;
                 margin: 0;
                 overflow: hidden;
+                text-align: center;
+                font-weight: bold;
             
             }
             .name{
@@ -35,6 +37,7 @@
                 text-align: right;
                 display: inline-block;
                 margin: 0 auto;
+                padding: 14px 16px;
             }
 
             .left:hover{
@@ -43,7 +46,7 @@
             }
 
             .welcome{
-                font-size: 30px;
+                font-size: 20px;
                 text-align: center;
                 text-wrap: wrap;
             }
@@ -144,14 +147,20 @@
             <label for="seat_no">seat</label>
             <select name="seat_no" required>
                 <option value="select">Select seat number</option>
-                <option value ="23">23</option>
-                <option value="34">34</option>
+                <option value ="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
             </select>
 
             <label for="id_no">Id number</label>
             <input type="number" name="id_no" required>
 
             <input type="submit" value="Book">
+
 
             </fieldset>
         </form>

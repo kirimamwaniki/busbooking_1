@@ -10,10 +10,11 @@ class bus(models.Model):
 class customer(models.Model):
     ticketno = models.IntegerField(primary_key=True)
     Customer_name = models.CharField(max_length=255)
-    seatno = models.IntegerField(default=0)
+    seatno = models.IntegerField(default=0, unique=True)
     busno = models.IntegerField(default=0)
     destination = models.CharField(max_length=255, null=True)
-    Id_number = models.IntegerField(max_length=8, null=True )
+    Id_number = models.IntegerField(null=True, unique=True )
+    status = models.CharField(max_length=50, default="not paid")
 
 
 class tester(models.Model):
