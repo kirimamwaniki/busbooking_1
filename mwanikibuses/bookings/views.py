@@ -2,6 +2,10 @@ from django.template import loader
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
+import qrcode
+from io import BytesIO
+from django.core.files.base import ContentFile
+import base64
 
 
 # testing function
@@ -37,10 +41,6 @@ def main(request):
     
     return render(request, 'main.html')
 
-def success(request):
-    #fetching success.html template
-    return render(request, 'success.html')
-
 def payment(request, id):
     #getting customer details from the main.html
     x = customer.objects.get(Id_number=id)
@@ -52,9 +52,22 @@ def payment(request, id):
             x.save()
 
             #redirecting to success page
-            return redirect('success') 
+            return redirect('details', id=x.Id_number) 
 
     return render(request, 'payment.html')
+
+def details(request, id):
+    #getting customer number
+    data = customer.objects.get(Id_number=id)
+    qr_data = f"Ticket: {data.ticketno}, Name: {data.Customer_name}, ID: {data.Id_number}, seatno: {data.seatno}, busno: {data.busno}"
+
+    #generating qrcode
+    qr = qrcode.make(qr_data)
+    buffer = BytesIO()
+    qr.save(buffer, format="PNG")
+    img_str = base64.b64encode(buffer.getvalue()).decode('utf-8')
+
+    return render(request, 'details.html', {'qr_code': img_str})
 
 # Create your views here.
             

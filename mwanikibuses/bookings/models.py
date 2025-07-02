@@ -1,10 +1,11 @@
 from django.db import models
 
 class bus(models.Model):
-    busno = models.IntegerField(default=0, primary_key=True)
+    busno = models.CharField(default=0, primary_key=True)
     busname = models.CharField(max_length=255)
     seats_available = models.IntegerField(default=30)
     Drivername = models.CharField(max_length=255)
+    Destination = models.CharField(max_length=255, default="Nairobi")
 
 
 class customer(models.Model):
